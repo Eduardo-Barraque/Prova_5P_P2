@@ -1,0 +1,8 @@
+.post{
+    width: 50vh;
+    height: auto;
+    margin: 1vh;
+    border: black solid 0.2vh;
+    padding: 1vh;
+    min-width: 250px;
+}

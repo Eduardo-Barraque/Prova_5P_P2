@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Fala Estágiario</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/img/favicon.ico' %}">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" />
+
+</head>
+<body>
+<form action="postar/" method="POST">
+    {% csrf_token %}
+    <label for="nome">Nome: </label>
+    <input id="nome" type="text" name="nome" value="">
+    <label for="descricao">Descrição: </label>
+    <input id="descricao" type="text" name="descricao">
+    <input type="submit" value="OK">
+</form>
+<div class="lista">
+    <section id="lista_posts">
+        <section>
+            <p>Os posts estão carregando ou não tem nenhum adicionado!</p>
+        </section>
+    </section>
+</div>
+</body>
+<script>
+xhr = new XMLHttpRequest();
+xhr.open("GET", "lista_posts/");
+xhr.send(null);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        document.getElementById("lista_posts").innerHTML = xhr.response;
+    }
+}
+</script>
+</html>

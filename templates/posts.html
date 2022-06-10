@@ -1,0 +1,15 @@
+{% for post in lista_posts %}
+    <section class="posts" id="post-{{ post.id }}">
+        <div class="post">
+            <div class="nomeEstagiario">
+                Usuário: {{ post.nome }}
+            </div>
+            <p>
+                {{post.data }}.
+            </p>
+            <div>
+                {{ post.descricao }}
+            </div>
+        </div>
+    </section>
+{% endfor %}
